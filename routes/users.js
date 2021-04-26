@@ -14,7 +14,7 @@ router.get('/', async function(req, res, next) {
 router.post('/', async function(req,res,next){
 
   let users = await Data.insertUser(req.body.name, req.body.email, req.body.password);
-  res.status(200).json({"Mensagem":"Usuário inserido com sucesso"});
+  res.status(200).json(mensage({"Mensagem":"Usuário inserido com sucesso"}));
   
 
 });
