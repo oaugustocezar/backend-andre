@@ -5,7 +5,7 @@ const url = "mongodb+srv://admin:admin@cluster0.sflja.mongodb.net/backend?retryW
 
 module.exports = class Posts{
 
-    static async insertUser(name,email,password,token){
+    static async insertUser(name,email,password){
         const conn = await MongoClient.connect(url);
         const db = conn.db();
         let result = await db.collection('users').insertOne({
@@ -13,7 +13,7 @@ module.exports = class Posts{
             name : name, 
             email :email,
             password : password,
-            token: token
+            token: ""
         });
 
         conn.close();

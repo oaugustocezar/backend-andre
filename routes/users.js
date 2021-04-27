@@ -20,7 +20,7 @@ router.post('/', async function(req,res,next){
 
   }catch{    
     
-      let users = await Data.insertUser(req.body.name, req.body.email, req.body.password,req.body.token);
+      let users = await Data.insertUser(req.body.name, req.body.email, req.body.password);
       res.status(200).json(users.ops[0]);
   
   }
