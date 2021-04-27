@@ -12,9 +12,22 @@ module.exports = class Posts{
 
             name : name, 
             email :email,
-            password : password
+            password : password,
+            token: ""
         });
 
+        conn.close();
+
+        return result;
+    }
+
+    static async findUser(email,password){
+        const conn = await MongoClient.connect(url);
+        const db = conn.db();
+        let result = await db.collection('users').findOne({
+            email:email,
+            password : password
+        });
         conn.close();
 
         return result;
@@ -29,4 +42,6 @@ module.exports = class Posts{
         return result;
 
     }
+
+    
 }
