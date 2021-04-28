@@ -19,29 +19,9 @@ router.post('/', async function(req,res,next){
 
   }else{
       let users = await Data.insertUser(req.body.name, req.body.email, req.body.password);
-      res.status(200).json({"data":{"mensagem" :"ususario inserido com sucesso"},"token":""});
+      res.status(200).json(users);
 
-  }
-
-  /*try{
-    let find = await Data.findUser(req.body.email, req.body.password);
-    if (find.email == req.body.email){
-      res.status(404).json({"data":{"mensagem": "usuario já cadastrado"}});
-    }
-
-  }catch{    
-    
-    
-      let users = await Data.insertUser(req.body.name, req.body.email, req.body.password);
-      res.status(200).json({"data":{"mensagem" :"ususario inserido com sucesso"},"token":""});
-  
-  }*/
-
-  
-  
- 
-  
-  
+  }  
 
 });
 
