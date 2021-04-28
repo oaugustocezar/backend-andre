@@ -15,7 +15,7 @@ module.exports = class Posts{
 
         },           
             token: "",
-            avatar: ""
+            avatar: "https://i.pravatar.cc/300"
         });
 
         conn.close();
