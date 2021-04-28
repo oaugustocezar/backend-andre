@@ -8,12 +8,14 @@ module.exports = class Posts{
     static async insertUser(name,email,password){
         const conn = await MongoClient.connect(url);
         const db = conn.db();
-        let result = await db.collection('users').insertOne({
-
+        let result = await db.collection('users').insertOne({data:{
             name : name, 
             email :email,
-            password : password,
-            token: ""
+            password : password
+
+        },           
+            token: "",
+            avatar: ""
         });
 
         conn.close();
