@@ -64,7 +64,7 @@ module.exports = class Posts{
            stars : star
 
 
-        }})
+        }, error: ""})
 
     }
 
