@@ -11,13 +11,14 @@ module.exports = class Posts{
         let result = await db.collection('users').insertOne({
             name : name, 
             email :email,
-            password : password,         
+            password : password,        
 
             data:{
             avatar: "https://i.pravatar.cc/300"
 
         },          
-            token: ""
+            token: "",
+            error: ""
             
            
         });
@@ -50,6 +51,34 @@ module.exports = class Posts{
         return result;
 
     }
+
+    static async insertBarber(name, star){
+
+        const conn = await MongoClient.connect(url);
+        const db = conn.db();
+
+        let result = await db.collection('barbers').insertOne({data:{
+
+           avatar: "https://i.pravatar.cc/300",
+           name: name,
+           stars : star
+
+
+        }})
+
+    }
+
+    static async getBarbers(lat, lng, locationText){
+
+        const conn = await MongoClient.connect(url);
+        const db = conn.db();
+        let result = await db.collection('barbers').find().toArray();
+        conn.close();
+        return result;
+
+    }
+
+    
 
     
 }
