@@ -15,8 +15,8 @@ module.exports = class Posts{
             avatar: "https://i.pravatar.cc/300"
 
         },           
-            token: "",
-            error = ""
+            token: ""
+            
            
         });
 
