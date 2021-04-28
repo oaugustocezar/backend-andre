@@ -7,7 +7,15 @@ var router = express.Router();
 
 router.post('/login', async function(req, res, next) {
 
-    try{
+    let find = await Data.findUser(req.body.email, req.body.password); 
+    if(find){
+        return res.status(200).json(login);
+
+    }else{
+        return res.status(404).json({"error":"senha ou email incorretas"});
+    }
+
+   /* try{
         
         let login = await Data.findUser(req.body.email, req.body.password);
         console.log(login);
@@ -16,7 +24,7 @@ router.post('/login', async function(req, res, next) {
 
         return res.status(404).json({"data":{"mensagem":"senha ou email incorretas"}});
 
-    }   
+    }   */
   
 });
 
