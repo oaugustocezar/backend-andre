@@ -8,13 +8,15 @@ module.exports = class Posts{
     static async insertUser(name,email,password){
         const conn = await MongoClient.connect(url);
         const db = conn.db();
-        let result = await db.collection('users').insertOne({data:{
+        let result = await db.collection('users').insertOne({
             name : name, 
             email :email,
-            password : password,
+            password : password,         
+
+            data:{
             avatar: "https://i.pravatar.cc/300"
 
-        },           
+        },          
             token: ""
             
            
@@ -26,14 +28,16 @@ module.exports = class Posts{
     }
 
     static async findUser(email,password){
+        console.log(email,password);
         const conn = await MongoClient.connect(url);
         const db = conn.db();
         let result = await db.collection('users').findOne({
-            email:email,
-            password : password
+            email :email, 
+            password:password
         });
+        
         conn.close();
-
+        
         return result;
     }
 

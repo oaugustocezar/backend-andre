@@ -8,8 +8,9 @@ var router = express.Router();
 router.post('/login', async function(req, res, next) {
 
     let find = await Data.findUser(req.body.email, req.body.password); 
+    //console.log(find);
     if(find){
-        return res.status(200).json(login);
+        return res.status(200).json(find);
 
     }else{
         return res.status(404).json({"error":"senha ou email incorretas"});
