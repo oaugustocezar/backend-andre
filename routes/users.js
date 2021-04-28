@@ -20,8 +20,9 @@ router.post('/', async function(req,res,next){
 
   }catch{    
     
+    
       let users = await Data.insertUser(req.body.name, req.body.email, req.body.password);
-      res.status(200).json.body({"data":{"mensagem" :"ususario inserido com sucesso"},"token":""});
+      res.status(200).body.json({"data":{"mensagem" :"ususario inserido com sucesso"},"token":""});
   
   }
 
