@@ -11,11 +11,13 @@ module.exports = class Posts{
         let result = await db.collection('users').insertOne({data:{
             name : name, 
             email :email,
-            password : password
+            password : password,
+            avatar: "https://i.pravatar.cc/300"
 
         },           
             token: "",
-            avatar: "https://i.pravatar.cc/300"
+            error = ""
+           
         });
 
         conn.close();
