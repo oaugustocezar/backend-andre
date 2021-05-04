@@ -20,7 +20,7 @@ router.get('/', async function(req, res, next) {
 router.post('/', async function(req,res,next){
   
     try{
-      let barber = await Data.insertBarber(req.body.name, req.body.star);
+      let barber = await Data.insertBarber(req.body.name, req.body.star,req.body.avatar);
       res.status(200).json({"Mensagem":"Inserido com sucesso"});
     }catch{
       res.json({"error":"não foi possivel inserir"});

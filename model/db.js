@@ -52,14 +52,14 @@ module.exports = class Posts{
 
     }
 
-    static async insertBarber(name, star){
+    static async insertBarber(name, star,avatar){
 
         const conn = await MongoClient.connect(url);
         const db = conn.db();
 
         let result = await db.collection('barbers').insertOne({
 
-           avatar: "https://i.pravatar.cc/300",
+           avatar: avatar,
            name: name,
            stars : star,
            error: ""})
