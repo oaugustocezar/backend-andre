@@ -57,14 +57,12 @@ module.exports = class Posts{
         const conn = await MongoClient.connect(url);
         const db = conn.db();
 
-        let result = await db.collection('barbers').insertOne({data:{
+        let result = await db.collection('barbers').insertOne({
 
            avatar: "https://i.pravatar.cc/300",
            name: name,
-           stars : star
-
-
-        }, error: ""})
+           stars : star,
+           error: ""})
 
     }
 
